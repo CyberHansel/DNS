@@ -11,7 +11,26 @@ Add to created conf file:
 sudo systemctl restart systemd-resolved
 
 
+vai  
+cd /etc/netplan 
+sudo nano 01-network-manager.yaml  
 
+  
+  
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    ens160:
+      dhcp4: no
+      addresses:
+        - 192.168.17.100/24
+      gateway4: 192.168.17.2
+      nameservers:
+          addresses: [1.1.1.1, 8.8.8.8, 4.4.4.4]
+
+sudo netplan try  
+sudo netplan apply
 
 
 update add mail.example.com. IN A 192.168.1.3  
