@@ -31,6 +31,7 @@ network:
 
 sudo netplan try  
 sudo netplan apply
+sudo netplan --debug apply #to see what happening when applying changes  
 
 
 update add mail.example.com. IN A 192.168.1.3  
