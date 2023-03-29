@@ -1,4 +1,16 @@
 # DNS
+
+$ nslookup 140.1.1.200.in-addr.arpa              #Looks for PTR record for ip address 200.1.1.140 !!! (IP in PTR is Reverse)
+$ nslookup -type=PTR 140.1.1.200.in-addr.arpa    #I think it's same command as previous.
+
+$ nslookup -type=SOA example.com                 #To determine whether a DNS server is authoritative for a particular zone.
+
+"Non-authoritative answer" indicates that the DNS server that provided the response is not the authoritative source for the domain you queried. DNS server that you
+                           contacted does not directly manage the DNS records for "example.com", but it has retrieved the information from another DNS server that is
+                           authoritative for that domain.
+
+
+
 /etc/netplan  
 cat /etc/resolv.conf    nameserver 1.1.1.1    
 
