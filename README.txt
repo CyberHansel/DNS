@@ -1,14 +1,19 @@
 # DNS
-
+$ nslookup example.com                           #requests data about DNS server.
 $ nslookup 140.1.1.200.in-addr.arpa              #Looks for PTR record for ip address 200.1.1.140 !!! (IP in PTR is Reverse)
 $ nslookup -type=PTR 140.1.1.200.in-addr.arpa    #I think it's same command as previous.
 
-$ nslookup -type=SOA example.com                 #To determine whether a DNS server is authoritative for a particular zone.
+$ nslookup -type=SOA example.com                 #To determine whether a DNS server is authoritative for a particular zone. If the DNS server is authoritative for the
+                                                  zone, it should return the Start of Authority (SOA) record for the domain.
 
 "Non-authoritative answer" indicates that the DNS server that provided the response is not the authoritative source for the domain you queried. DNS server that you
                            contacted does not directly manage the DNS records for "example.com", but it has retrieved the information from another DNS server that is
                            authoritative for that domain.
 
+$ dig +noall +answer @<nameserver_ip> www.example.com               #Request  for A record
+$ dig +noall +answer @<nameserver_ip> -x 192.168.1.1                #reverse DNS lookups for PTR record of example.com
+$ nslookup -query=ptr 1.1.168.192.in-addr.arpa <nameserver_ip>      #Alternative to query PTR record about 192.168.1.1 from DNS server
+The "+noall +answer" options are used to make the output of the command more concise and display only the answer section of the response.
 
 
 /etc/netplan  
