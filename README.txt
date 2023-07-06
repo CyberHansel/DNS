@@ -1,4 +1,10 @@
+$ ip route show        #shows the routing entries that define how network packets are forwarded or routed within the system
+$ ip -br a show        #brief or concise view of the system's network interfaces and their configurations, -br option stands for "brief
+
+
 # DNS
+## NSLOOKUP
+
 $ nslookup example.com                           #requests data about DNS server.
 $ nslookup 140.1.1.200.in-addr.arpa              #Looks for PTR record for ip address 200.1.1.140 !!! (IP in PTR is Reverse)
 $ nslookup -type=PTR 140.1.1.200.in-addr.arpa    #I think it's same command as previous.
@@ -9,6 +15,8 @@ $ nslookup -type=SOA example.com                 #To determine whether a DNS ser
 "Non-authoritative answer" indicates that the DNS server that provided the response is not the authoritative source for the domain you queried. DNS server that you
                            contacted does not directly manage the DNS records for "example.com", but it has retrieved the information from another DNS server that is
                            authoritative for that domain.
+## DIG
+$ dig google.com @ns.test.com              #querying the DNS records for "google.com" from specific the DNS server ns.test.com
 
 $ dig +noall +answer @<nameserver_ip> www.example.com               #Request  for A record
 $ dig +noall +answer @<nameserver_ip> -x 192.168.1.1                #reverse DNS lookups for PTR record of example.com
