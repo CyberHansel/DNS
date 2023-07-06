@@ -5,7 +5,7 @@ $ ip -br a show        #brief or concise view of the system's network interfaces
 # DNS
 ## NSLOOKUP
 
-$ nslookup example.com                           #requests data about DNS server.
+$ nslookup example.com                           #requests data about domain google.com and shows from which DNS server.
 $ nslookup 140.1.1.200.in-addr.arpa              #Looks for PTR record for ip address 200.1.1.140 !!! (IP in PTR is Reverse)
 $ nslookup -type=PTR 140.1.1.200.in-addr.arpa    #I think it's same command as previous.
 
